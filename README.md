@@ -25,13 +25,13 @@ Setelah menyelesaikan praktikum ini, mahasiswa diharapkan mampu:
 
 ### **1. Inisialisasi Proyek Laravel dan Breeze**
 
-<!-- Buat proyek Laravel baru. -->
+Buat proyek Laravel baru.
 ```bash
 composer create-project laravel/laravel geminimusicpedia
 cd geminimusicpedia
 ```
 
-<!-- Instal Laravel Breeze untuk sistem autentikasi. -->
+Instal Laravel Breeze untuk sistem autentikasi.
 ```bash
 composer require laravel/breeze
 php artisan breeze:install blade
@@ -39,20 +39,20 @@ npm install
 npm run dev
 ```
 
-<!-- Jalankan migrasi awal untuk membuat tabel standar Laravel. -->
+Jalankan migrasi awal untuk membuat tabel standar Laravel.
 ```bash
 php artisan migrate
 ```
-<!-- Pastikan `DB_CONNECTION=sqlite` di file `.env`. -->
+Pastikan `DB_CONNECTION=sqlite` di file `.env`.
 
 ### **2. Desain dan Implementasi Skema Database**
 
-<!-- Membuat migrasi untuk tabel `songs`. -->
+Membuat migrasi untuk tabel `songs`.
 ```bash
 php artisan make:model Song -m
 ```
 
-<!-- Isi file migrasi `database/migrations/*_create_songs_table.php` dengan kolom-kolom berikut: -->
+Isi file migrasi `database/migrations/*_create_songs_table.php` dengan kolom-kolom berikut:
 ```php
 <?php
 
@@ -90,12 +90,12 @@ return new class extends Migration
 };
 ```
 
-<!-- Membuat migrasi untuk tabel `purchases`. -->
+Membuat migrasi untuk tabel `purchases`.
 ```bash
 php artisan make:model Purchase -m
 ```
 
-<!-- Isi file migrasi `database/migrations/*_create_purchases_table.php` dengan kolom-kolom berikut, termasuk foreign keys: -->
+Isi file migrasi `database/migrations/*_create_purchases_table.php` dengan kolom-kolom berikut, termasuk foreign keys:
 ```php
 <?php
 
@@ -130,7 +130,7 @@ return new class extends Migration
 };
 ```
 
-<!-- Modifikasi migrasi `database/migrations/*_create_users_table.php` untuk menambahkan kolom `role`. -->
+Modifikasi migrasi `database/migrations/*_create_users_table.php` untuk menambahkan kolom `role`.
 ```php
 <?php
 
@@ -184,14 +184,14 @@ return new class extends Migration
 };
 ```
 
-<!-- Jalankan migrasi ulang secara bersih. -->
+Jalankan migrasi ulang secara bersih.
 ```bash
 php artisan migrate:fresh
 ```
 
 ### **3. Konfigurasi Model Eloquent**
 
-<!-- Perbarui `app/Models/User.php` untuk menambahkan `$fillable` 'role', method `isAdmin()`, dan relasi `purchases()`. -->
+Perbarui `app/Models/User.php` untuk menambahkan `$fillable` 'role', method `isAdmin()`, dan relasi `purchases()`.
 ```php
 <?php
 
@@ -244,7 +244,7 @@ class User extends Authenticatable
 }
 ```
 
-<!-- Perbarui `app/Models/Song.php` untuk menambahkan properti `$fillable` dan relasi `purchases()`. -->
+Perbarui `app/Models/Song.php` untuk menambahkan properti `$fillable` dan relasi `purchases()`.
 ```php
 <?php
 
@@ -275,7 +275,7 @@ class Song extends Model
 }
 ```
 
-<!-- Perbarui `app/Models/Purchase.php` untuk menambahkan properti `$fillable`, `$casts`, dan relasi `user()`/`song()`. -->
+Perbarui `app/Models/Purchase.php` untuk menambahkan properti `$fillable`, `$casts`, dan relasi `user()`/`song()`.
 ```php
 <?php
 
@@ -321,7 +321,7 @@ class Purchase extends Model
 
 ### **4. Implementasi Hak Akses (Authorization)**
 
-<!-- Definisikan Gate `access-admin` di `app/Providers/AppServiceProvider.php`. -->
+Definisikan Gate `access-admin` di `app/Providers/AppServiceProvider.php`.
 ```php
 <?php
 
@@ -353,12 +353,12 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-<!-- Buat middleware baru untuk admin. -->
+Buat middleware baru untuk admin.
 ```bash
 php artisan make:middleware AdminMiddleware
 ```
 
-<!-- Implementasikan logika di `app/Http/Middleware/AdminMiddleware.php`. -->
+Implementasikan logika di `app/Http/Middleware/AdminMiddleware.php`.
 ```php
 <?php
 
@@ -387,7 +387,7 @@ class AdminMiddleware
 }
 ```
 
-<!-- Daftarkan alias middleware `admin` di `bootstrap/app.php`. -->
+Daftarkan alias middleware `admin` di `bootstrap/app.php`.
 ```php
 <?php
 
@@ -413,12 +413,12 @@ return Application::configure(basePath: dirname(__DIR__))
 
 ### **5. Fitur Publik dan Pelanggan**
 
-<!-- Membuat Controller untuk Lagu. -->
+Membuat Controller untuk Lagu.
 ```bash
 php artisan make:controller SongController
 ```
 
-<!-- Implementasi method `index()` di `app/Http/Controllers/SongController.php`. -->
+Implementasi method `index()` di `app/Http/Controllers/SongController.php`.
 ```php
 <?php
 
@@ -448,12 +448,12 @@ class SongController extends Controller
 }
 ```
 
-<!-- Membuat Controller untuk Pembelian. -->
+Membuat Controller untuk Pembelian.
 ```bash
 php artisan make:controller PurchaseController
 ```
 
-<!-- Implementasi method `index()` dan `store()` di `app/Http/Controllers/PurchaseController.php`. -->
+Implementasi method `index()` dan `store()` di `app/Http/Controllers/PurchaseController.php`.
 ```php
 <?php
 
@@ -505,7 +505,7 @@ class PurchaseController extends Controller
 }
 ```
 
-<!-- Mendefinisikan rute untuk fitur publik dan pelanggan di `routes/web.php`. -->
+Mendefinisikan rute untuk fitur publik dan pelanggan di `routes/web.php`.
 ```php
 <?php
 
@@ -558,7 +558,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 ```
 
-<!-- Membuat view untuk daftar lagu `resources/views/songs/index.blade.php`. -->
+Membuat view untuk daftar lagu `resources/views/songs/index.blade.php`.
 ```blade
 <x-app-layout>
     <x-slot name="header">
@@ -623,7 +623,7 @@ require __DIR__.'/auth.php';
 </x-app-layout>
 ```
 
-<!-- Membuat view untuk koleksi lagu yang sudah dibeli `resources/views/collection/index.blade.php`. -->
+Membuat view untuk koleksi lagu yang sudah dibeli `resources/views/collection/index.blade.php`.
 ```blade
 <x-app-layout>
     <x-slot name="header">
@@ -674,7 +674,7 @@ require __DIR__.'/auth.php';
 
 ### **6. Fitur Admin - CRUD dan Laporan**
 
-<!-- Implementasi method `index`, `create`, `store`, `show`, `edit`, `update`, `destroy` di `app/Http/Controllers/Admin/SongController.php`. -->
+Implementasi method `index`, `create`, `store`, `show`, `edit`, `update`, `destroy` di `app/Http/Controllers/Admin/SongController.php`.
 ```php
 <?php
 
@@ -814,7 +814,7 @@ class SongController extends Controller
 }
 ```
 
-<!-- Implementasi method `index`, `edit`, `update`, `destroy` di `app/Http/Controllers/Admin/UserController.php`. -->
+Implementasi method `index`, `edit`, `update`, `destroy` di `app/Http/Controllers/Admin/UserController.php`.
 ```php
 <?php
 
@@ -899,7 +899,7 @@ class UserController extends Controller
 }
 ```
 
-<!-- Implementasi method `exportSales()` di `app/Http/Controllers/Admin/ReportController.php`. -->
+Implementasi method `exportSales()` di `app/Http/Controllers/Admin/ReportController.php`.
 ```php
 <?php
 
@@ -953,7 +953,7 @@ class ReportController extends Controller
 }
 ```
 
-<!-- Membuat view `resources/views/admin/dashboard.blade.php`. -->
+Membuat view `resources/views/admin/dashboard.blade.php`.
 ```blade
 <x-app-layout>
     <x-slot name="header">
@@ -975,7 +975,7 @@ class ReportController extends Controller
 </x-app-layout>
 ```
 
-<!-- Membuat view `resources/views/admin/songs/index.blade.php`. -->
+Membuat view `resources/views/admin/songs/index.blade.php`.
 ```blade
 <x-app-layout>
     <x-slot name="header">
@@ -1050,7 +1050,7 @@ class ReportController extends Controller
 </x-app-layout>
 ```
 
-<!-- Membuat view `resources/views/admin/songs/create.blade.php`. -->
+Membuat view `resources/views/admin/songs/create.blade.php`.
 ```blade
 <x-app-layout>
     <x-slot name="header">
@@ -1130,7 +1130,7 @@ class ReportController extends Controller
 </x-app-layout>
 ```
 
-<!-- Membuat view `resources/views/admin/songs/edit.blade.php`. -->
+Membuat view `resources/views/admin/songs/edit.blade.php`.
 ```blade
 <x-app-layout>
     <x-slot name="header">
@@ -1223,7 +1223,7 @@ class ReportController extends Controller
 </x-app-layout>
 ```
 
-<!-- Membuat view `resources/views/admin/users/index.blade.php`. -->
+Membuat view `resources/views/admin/users/index.blade.php`.
 ```blade
 <x-app-layout>
     <x-slot name="header">
@@ -1297,7 +1297,7 @@ class ReportController extends Controller
 </x-app-layout>
 ```
 
-<!-- Membuat view `resources/views/admin/users/edit.blade.php`. -->
+Membuat view `resources/views/admin/users/edit.blade.php`.
 ```blade
 <x-app-layout>
     <x-slot name="header">
@@ -1355,7 +1355,7 @@ class ReportController extends Controller
 
 ### **7. Finalisasi Navigasi dan Seeder**
 
-<!-- File `resources/views/layouts/navigation.blade.php` setelah semua penyesuaian. -->
+File `resources/views/layouts/navigation.blade.php` setelah semua penyesuaian.
 ```blade
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
@@ -1511,7 +1511,7 @@ class ReportController extends Controller
 </nav>
 ```
 
-<!-- Membuat seeder untuk lagu `database/seeders/SongSeeder.php`. Ini akan juga membuat file audio dummy di `storage/app/public/audio`. -->
+Membuat seeder untuk lagu `database/seeders/SongSeeder.php`. Ini akan juga membuat file audio dummy di `storage/app/public/audio`.
 ```php
 <?php
 
@@ -1573,7 +1573,7 @@ class SongSeeder extends Seeder
 }
 ```
 
-<!-- Membuat seeder utama `database/seeders/DatabaseSeeder.php` untuk memanggil `SongSeeder` dan membuat user admin/customer. -->
+Membuat seeder utama `database/seeders/DatabaseSeeder.php` untuk memanggil `SongSeeder` dan membuat user admin/customer.
 ```php
 <?php
 
@@ -1608,7 +1608,7 @@ class DatabaseSeeder extends Seeder
 }
 ```
 
-<!-- Link storage untuk file publik. -->
+Link storage untuk file publik.
 ```bash
 php artisan storage:link
 ```
@@ -1624,11 +1624,5 @@ php artisan storage:link
 4.  **Uji Sebagai Pelanggan**: Login dengan `test@example.com` / `password`. Coba beli lagu, lihat koleksi saya, dan edit profil.
 5.  **Uji Sebagai Admin**: Login dengan `admin@example.com` / `password`. Akses menu Admin, kelola lagu/pengguna, dan ekspor laporan penjualan.
 
-### **9. Tugas Tambahan dan Eksplorasi**
-
-*   Tambahkan fungsionalitas paginasi pada halaman daftar lagu dan daftar pengguna.
-*   Gunakan Laravel Factory untuk membuat data dummy yang lebih realistis.
-*   Tambahkan *feature test* untuk memvalidasi fungsionalitas pembelian lagu.
-*   Implementasikan validasi yang lebih kompleks, misalnya memastikan file yang di-upload benar-benar file audio.
 
 ---
