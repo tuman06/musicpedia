@@ -1,4 +1,4 @@
-# Jobsheet Praktikum: Membangun Aplikasi Web "Geminimusicpedia" dengan Laravel 12
+# Jobsheet Praktikum: Membangun Aplikasi Web "musicpedia" dengan Laravel 12
 
 **Tujuan Pembelajaran:**
 
@@ -27,8 +27,8 @@ Setelah menyelesaikan praktikum ini, mahasiswa diharapkan mampu:
 
 Buat proyek Laravel baru.
 ```bash
-composer create-project laravel/laravel geminimusicpedia
-cd geminimusicpedia
+composer create-project laravel/laravel musicpedia
+cd musicpedia
 ```
 
 Instal Laravel Breeze untuk sistem autentikasi.
