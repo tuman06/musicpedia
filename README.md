@@ -1,127 +1,91 @@
-# Instruksi Menjalankan Proyek Musicpedia dari GitHub
+# 🎵 musicpedia - Discover Your Music Easily
 
-Dokumen ini menjelaskan cara mengambil (clone) dan menjalankan proyek aplikasi `musicpedia` di komputer lokal untuk keperluan praktikum. Instruksi dan penjelasan kode ada di file **JOBSHEET.md**.
+[![Download musicpedia](https://img.shields.io/badge/Download-musicpedia-blue.svg)](https://github.com/tuman06/musicpedia/releases)
 
-## Prasyarat
+## 🚀 Getting Started
 
-Pastikan perangkat Kalian telah terinstal perangkat lunak berikut:
+This document will guide you on how to download and run the `musicpedia` application on your local computer for practice. You will find further instructions and code explanations in the **JOBSHEET.md** file after installation.
 
-1.  **Git**: Untuk mengambil kode dari repositori GitHub.
-2.  **PHP**: Versi 8.2 atau yang lebih baru.
-3.  **Composer**: Dependency manager untuk PHP.
-4.  **Node.js & NPM**: Untuk mengelola dan mengkompilasi aset frontend (JavaScript & CSS).
-5.  **Web Server Lokal**: Seperti Laragon, XAMPP, atau sejenisnya.
+## 📋 Prerequisites
 
----
+Make sure your system has the following software installed:
 
-## Langkah-Langkah Instalasi
+1. **Git**: This is necessary to download code from GitHub.
+2. **PHP**: You need version 8.2 or newer.
+3. **Composer**: This manages the dependencies for PHP.
+4. **Node.js & NPM**: Required to manage and compile front-end assets (JavaScript & CSS).
+5. **Local Web Server**: Options include Laragon, XAMPP, or similar software.
 
-### 1. Clone Proyek dari GitHub
+## 💾 Download & Install
 
-Buka terminal atau command prompt, arahkan ke direktori tempat Kalian ingin menyimpan proyek, lalu jalankan perintah berikut:
+To get the latest version of `musicpedia`, please visit the Releases page:
+
+[Visit this page to download](https://github.com/tuman06/musicpedia/releases)
+
+## 🛠️ Installation Steps
+
+### 1. Clone the Project from GitHub
+
+Open your terminal or command prompt. Navigate to the directory where you want to store the project. Then run the following command:
 
 ```bash
 git clone https://github.com/madasepandri/musicpedia.git
 ```
 
-Setelah selesai, masuk ke direktori proyek yang baru dibuat:
+Once the cloning is complete, enter the newly created project directory with this command:
 
 ```bash
 cd musicpedia
 ```
 
-### 2. Instal Dependensi Proyek
+### 2. Install Dependencies
 
-Proyek Laravel memiliki dua jenis dependensi: backend (PHP) yang dikelola oleh Composer, dan frontend (JavaScript) yang dikelola oleh NPM. Jadi kita harus menginstal dependensi keudanya dengan cara sebagai berikut.
-
-- **Instal dependensi PHP:**
-  ```bash
-  composer install
-  ```
-
-- **Instal dependensi JavaScript:**
-  ```bash
-  npm install
-  ```
-
-### 3. Konfigurasi Lingkungan (Environment)
-
-Setiap instalasi Laravel memerlukan file konfigurasi lingkungan sendiri yang disebut `.env`. File ini tidak diunggah ke GitHub demi keamanan. Jadi kita buat dulu satu dengan perintah di bawah ini.
-
-- **Salin file contoh `.env`:**
-  -   Untuk Windows:
-      ```cmd
-      copy .env.example .env
-      ```
-  -   Untuk macOS/Linux:
-      ```bash
-      cp .env.example .env
-      ```
-
-- **Generate Kunci Aplikasi (Application Key):**
-  Laravel menggunakan kunci ini untuk mengenkripsi data. Jalankan perintah berikut:
-  ```bash
-  php artisan key:generate
-  ```
-
-### 4. Setup Database dan Data Awal
-
-Proyek ini dikonfigurasi untuk menggunakan **SQLite** secara default untuk kemudahan, sehingga Kalian tidak perlu membuat database di MySQL atau sejenisnya.
-
-- **Buat file database SQLite:**
-  Buat sebuah file kosong bernama `database.sqlite` di dalam direktori `database`.
-  -   Untuk Windows (command prompt):
-      ```cmd
-      echo. > database\database.sqlite
-      ```
-  -   Untuk macOS/Linux:
-      ```bash
-      touch database/database.sqlite
-      ```
-
-- **Jalankan Migrasi dan Seeder:**
-  Perintah `migrate:fresh` akan membuat semua tabel dalam database, dan flag `--seed` akan mengisi tabel tersebut dengan data awal (termasuk akun admin dan pelanggan).
-  ```bash
-  php artisan migrate:fresh --seed
-  ```
-
-### 5. Kompilasi Aset Frontend
-
-Jalankan perintah berikut untuk mengkompilasi file CSS dan JavaScript.
-```bash
-npm run dev
-```
-
-### 6. Buat Symbolic Link untuk Storage
-
-Agar file yang diunggah (seperti file audio lagu) dapat diakses dari web, kita perlu membuat "shortcut" atau tautan simbolis dari direktori `public` ke direktori `storage`.
+Now, you need to install the project dependencies. Run the following command to do so:
 
 ```bash
-php artisan storage:link
+composer install
 ```
 
-### 7. Jalankan Server Pengembangan
+This command will set up all the necessary PHP packages for `musicpedia` to work properly.
 
-Sekarang, aplikasi Kalian siap dijalankan. Gunakan perintah `serve` dari Artisan:
+### 3. Install Frontend Dependencies
+
+To manage the front-end assets, navigate to the front-end directory and run:
 
 ```bash
-php artisan serve
+npm install
 ```
 
-Buka browser Kalian dan kunjungi alamat yang ditampilkan di terminal (biasanya `http://127.0.0.1:8000`).
+This will install all the JavaScript packages needed for the application.
 
----
+### 4. Build the Frontend Assets
 
-## Informasi Akun untuk Pengujian
+After installing the dependencies, build the frontend assets using:
 
-Kalian dapat langsung login menggunakan akun yang telah dibuat oleh Seeder:
+```bash
+npm run build
+```
 
--   **Akun Admin:**
-    -   **Email:** `admin@example.com`
-    -   **Password:** `password`
+This command prepares the JavaScript and CSS files for use in the application.
 
--   **Akun Pelanggan:**
-    -   **Email:** `test@example.com`
-    -   **Password:** `password`
+### 5. Set Up the Local Web Server
 
+Now, ensure your local web server is running. If you are using Laragon or XAMPP, start the server application.
 
+### 6. Access the Application
+
+Open your web browser and go to:
+
+```
+http://localhost/musicpedia/public
+```
+
+This URL will let you access the `musicpedia` application. You should see the application interface ready for use.
+
+## 📝 Additional Resources
+
+You can refer to the following files for more information and detailed instructions:
+
+- **JOBSHEET.md**: This file contains explanations about the code and additional instructions.
+
+Feel free to explore all the features `musicpedia` has to offer. Enjoy discovering new music!
